@@ -54,7 +54,8 @@ class GameBoard:
 				if mark:
 					row[index].mark()
 				else:
-					row[index].pencilInList.remove(cellValue)
+					if cellValue in cell.pencilInList:
+						row[index].pencilInList.remove(cellValue)
 
 		return self
 
@@ -65,6 +66,9 @@ class GameBoard:
 					self.grid[nonetRow + i][nonetCol + j].initPencilInList(pencilInList)
 					for num in pencilInList:
 						self.crosshatch(num, mark=False)
+				if len(self.grid[nonetRow + i][nonetCol + j].pencilInList) == 1:
+					self.fillIn(nonetRow + i, nonetCol + j, self.grid[nonetRow + i][nonetCol + j].pencilInList[0])
+
 		return
 
 	def fillIn(self, row, col, replacementValue):

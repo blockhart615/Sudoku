@@ -19,8 +19,8 @@ def getSudokuGrid(fileName):
 			gridList.append(GameBoard(list(sudokuGrid)))
 			sudokuGrid = ""
 
-	for grid in gridList:
-		grid.printGrid()
+	# for grid in gridList:
+	# 	grid.printGrid()
 
 	return gridList
 
